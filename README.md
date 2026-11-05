@@ -1,2 +1,10 @@
-# Portfolio
-Étudiante en Intelligence Artificielle à NTIC SYBA (Marrakech), je conçois des outils pour automatiser des tâches et exploiter des données. J’utilise Python, les API d’IA, visualisation POWER BI ,Claude, ChatGPT, Gemini et n8n pour construire des scripts et des workflows concrets, de la prédiction de prix immobiliers à la veille automatisée.
+# Portfolio – Jaouja Toure
+Site : `index.html` · Projets : dossier `projects/`
+
+## Modifier
+Ouvre `index.html` sur GitHub (icône crayon) et change seulement le bloc "MODIFIE UNIQUEMENT CETTE PARTIE" (pseudo GitHub, profil, projets). Clique sur *Commit changes*.
+
+## Mettre en ligne
+1. Crée un dépôt public nommé `portfolio` et envoie tous ces fichiers (Add file → Upload files).
+2. Settings → Pages → Source : *Deploy from a branch* → `main` / `(root)`.
+3. Le site apparaît sur `https://TON-PSEUDO.github.io/portfolio/` après 1 à 2 minutes.

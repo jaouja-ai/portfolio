@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaouja Toure – Python & Automatisation IA</title>
+<style>
+:root{--bg:#fff;--fg:#1c2733;--mut:#5b6773;--card:#f2f5f9;--ac:#1f3a5f}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1720;--fg:#e8edf2;--mut:#9aa7b4;--card:#18222e;--ac:#7fb0ea}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg)}
+main{max-width:860px;margin:auto;padding:48px 20px}h1{margin:0;color:var(--ac)}h2{color:var(--ac);border-bottom:2px solid var(--ac);padding-bottom:4px;margin-top:40px}
+.mut{color:var(--mut)}.grid{display:grid;gap:16px}.card{background:var(--card);border-radius:10px;padding:18px}
+.card h3{margin:0 0 6px}.tag{display:inline-block;font-size:13px;border:1px solid var(--ac);color:var(--ac);border-radius:20px;padding:1px 10px;margin:2px 4px 2px 0}
+a{color:var(--ac)}
+</style></head><body><main>
+<h1 id="name"></h1><p id="title" class="mut"></p><p id="about"></p><p id="links"></p>
+<h2>Projets</h2><div id="projects" class="grid"></div>
+<h2>Compétences</h2><p id="skills"></p>
+<script>
+// ===== MODIFIE UNIQUEMENT CETTE PARTIE =====
+const GITHUB_USER = "TON-PSEUDO-GITHUB";   // ex: "jaouja"
+const REPO = "portfolio";
+const PROFILE = {
+  name: "Jaouja Abdoulaye Toure",
+  title: "Étudiante en IA (NTIC SYBA, Marrakech) · Python & Automatisation IA",
+  about: "J'automatise des tâches avec Python, les API d'IA (Claude, ChatGPT, Gemini) et n8n, et je construis des outils autour des données.",
+  email: "tourejaouja655@gmail.com",
+  skills: ["Python","Pandas","NumPy","scikit-learn","API REST","n8n","Claude / ChatGPT / Gemini","Excel","Power BI","Git"]
+};
+const PROJECTS = [
+ {name:"Prédiction des prix immobiliers à Marrakech", folder:"real-estate-marrakech",
+  desc:"Nettoyage d'un dataset, exploration et modèle de régression pour estimer le prix d'un bien.",
+  tags:["Python","Pandas","scikit-learn"]},
+ {name:"Veille IA automatique par email", folder:"ai-news-emailer",
+  desc:"Script qui récupère les actualités IA via flux RSS et les envoie par email chaque jour (GitHub Actions).",
+  tags:["Python","RSS","SMTP","GitHub Actions"]},
+ {name:"Recherche de stages à Marrakech", folder:"internship-finder-marrakech",
+  desc:"Recherche d'offres via l'API Google et le scraping, dédoublonnage et export CSV.",
+  tags:["Python","API Google","BeautifulSoup"]}
+];
+// ===========================================
+const base=`https://github.com/${GITHUB_USER}/${REPO}/tree/main/projects/`;
+const $=id=>document.getElementById(id), esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+document.title=PROFILE.name;$("name").textContent=PROFILE.name;$("title").textContent=PROFILE.title;$("about").textContent=PROFILE.about;
+$("links").innerHTML=`<a href="mailto:${PROFILE.email}">${PROFILE.email}</a> · <a href="https://github.com/${GITHUB_USER}">GitHub</a>`;
+$("projects").innerHTML=PROJECTS.map(p=>`<div class="card"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}<p><a href="${base+p.folder}">Voir le code et le README →</a></p></div>`).join("");
+$("skills").innerHTML=PROFILE.skills.map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+</script></main></body></html>
